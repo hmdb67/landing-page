@@ -30,6 +30,17 @@
  * 
 */
 
+console.log("Starting to run app.js ...");
+
+const loadSectionData = function () {
+
+    const sections = document.querySelectorAll("section");
+    for(let i = 0; i < sections.length; ++i){
+        const sectionH2 = sections[i].getElementsByTagName("h2");
+        console.log(sectionH2[0].textContent);
+    }
+
+};
 
 
 /**
@@ -37,6 +48,8 @@
  * Begin Main Functions
  * 
 */
+
+loadSectionData();
 
 // build the nav
 
