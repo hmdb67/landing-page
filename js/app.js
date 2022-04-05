@@ -34,10 +34,19 @@ console.log("Starting to run app.js ...");
 
 const loadSectionData = function () {
 
-    const sections = document.querySelectorAll("section");
+
+    const sections = document.body.querySelectorAll("section");
+    const menuList = document.querySelector("#navbar__list");
+    console.log(menuList);
+
+    // const navBarList = document.body.
     for(let i = 0; i < sections.length; ++i){
         const sectionH2 = sections[i].getElementsByTagName("h2");
-        console.log(sectionH2[0].textContent);
+        const textSection = sectionH2[0].textContent;
+        const newMenuItem = `<li><a>${textSection}</a></li>`
+        console.log(newMenuItem);
+
+        menuList.insertAdjacentHTML('beforeend', newMenuItem)
     }
 
 };
