@@ -32,20 +32,22 @@
 
 console.log("Starting to run app.js ...");
 
-const loadSectionData = function () {
+/*
+Funtion will query all sections of the main page (index.html) to get the section tiltle
+wich will become the menu's name, then append list items to the anchored unordered list
+with all attibutes needed to display the styled list as a menu.
+*/
 
+const renderMenu = () => {
 
     const sections = document.body.querySelectorAll("section");
     const menuList = document.querySelector("#navbar__list");
-    console.log(menuList);
 
-    // const navBarList = document.body.
     for(let i = 0; i < sections.length; ++i){
-        const sectionH2 = sections[i].getElementsByTagName("h2");
-        const textSection = sectionH2[0].textContent;
-        const newMenuItem = `<li><a>${textSection}</a></li>`
-        console.log(newMenuItem);
-
+        const menuName = sections[i].getElementsByTagName("h2");
+        const textSection = menuName[0].textContent;
+        const menuId = sections[i].id;
+        const newMenuItem = `<li><a class="menu__link" href="#${menuId}" >${textSection}</a></li>`
         menuList.insertAdjacentHTML('beforeend', newMenuItem)
     }
 
@@ -58,7 +60,7 @@ const loadSectionData = function () {
  * 
 */
 
-loadSectionData();
+renderMenu();
 
 // build the nav
 
